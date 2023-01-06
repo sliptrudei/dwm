@@ -147,6 +147,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      	6)
 	TAGKEYS(                        XK_8,                      	7)
 	TAGKEYS(                        XK_9,                      	8)
+	{ MODKEY,                       XK_F11,   spawn,        	SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
 	{ MODKEY,                       XK_minus,   spawn,        	SHCMD("xbacklight -dec 5") },
 	{ MODKEY,                       XK_equal,   spawn,        	SHCMD("xbacklight -inc  5") },
 	{ 0, XF86XK_AudioMute,				              spawn,	      	SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },

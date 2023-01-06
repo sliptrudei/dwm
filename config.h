@@ -2,7 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx              = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx           = 5;        /* gaps between windows */
 static unsigned int snap                  = 32;       /* snap pixel */
 //static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning  = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -118,7 +118,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      	setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, 	zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    	view,           {0} },
-	{ MODKEY,             		XK_q,      	killclient,     {0} },
+	{ MODKEY,             		      XK_q,      	killclient,     {0} },
 	{ MODKEY,                       XK_t,      	setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      	setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      	setlayout,      {.v = &layouts[2]} },
@@ -126,9 +126,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  	setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  	togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      	togglefullscr,  {0} },
-	{ MODKEY,                       XK_c,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_v,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_v,  setgaps,        {.i = 0  } },
+	{ MODKEY,                       XK_c,       setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_v,       setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_v,       setgaps,        {.i = 0  } },
 	{ MODKEY,                       XK_0,      	view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      	tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  	focusmon,       {.i = -1 } },
@@ -147,11 +147,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      	6)
 	TAGKEYS(                        XK_8,                      	7)
 	TAGKEYS(                        XK_9,                      	8)
-	{ MODKEY,                       XK_minus,      	spawn,        	SHCMD("xbacklight -dec 5") },
-	{ MODKEY,                       XK_equal,     	spawn,        	SHCMD("xbacklight -inc  5") },
-	{ 0, XF86XK_AudioMute,				spawn,	      	SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,			spawn,	      	SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
-	{ 0, XF86XK_AudioLowerVolume,			spawn,	      	SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
+	{ MODKEY,                       XK_F11,   spawn,        	SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
+	{ MODKEY,                       XK_minus,   spawn,        	SHCMD("xbacklight -dec 5") },
+	{ MODKEY,                       XK_equal,   spawn,        	SHCMD("xbacklight -inc  5") },
+	{ 0, XF86XK_AudioMute,				              spawn,	      	SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ 0, XF86XK_AudioRaiseVolume,			          spawn,	      	SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
+	{ 0, XF86XK_AudioLowerVolume,			          spawn,	      	SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
 	{ MODKEY|ShiftMask,             XK_q,      	quit,           {0} },
 };
 
